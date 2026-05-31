@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MrRijal\MicroService\Support;
+namespace MrThito\MicroService\Support;
 
-use MrRijal\MicroService\Contracts\MicroServiceConfig;
+use MrThito\MicroService\Contracts\MicroServiceConfig;
 use RuntimeException;
 
 final class BaseConfigValidator

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MrRijal\MicroService\Security;
+namespace MrThito\MicroService\Security;
 
 final class EventSigner
 {

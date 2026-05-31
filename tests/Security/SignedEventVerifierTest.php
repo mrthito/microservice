@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace MrRijal\MicroService\Tests\Security;
+namespace MrThito\MicroService\Tests\Security;
 
-use MrRijal\MicroService\Security\EventSigner;
-use MrRijal\MicroService\Security\SignedEventVerifier;
+use MrThito\MicroService\Security\EventSigner;
+use MrThito\MicroService\Security\SignedEventVerifier;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 

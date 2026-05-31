@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MrRijal\MicroService\Contracts;
+namespace MrThito\MicroService\Contracts;
 
 interface EventProcessor
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MrRijal\MicroService\Support;
+namespace MrThito\MicroService\Support;
 
 final class Env
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace MrRijal\MicroService\Queue;
+namespace MrThito\MicroService\Queue;
 
-use MrRijal\MicroService\Contracts\EventProcessor;
-use MrRijal\MicroService\Contracts\EventVerifier;
-use MrRijal\MicroService\Support\Logger;
+use MrThito\MicroService\Contracts\EventProcessor;
+use MrThito\MicroService\Contracts\EventVerifier;
+use MrThito\MicroService\Support\Logger;
 use Throwable;
 
 final class RedisQueueListener

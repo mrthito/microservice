@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MrRijal\MicroService\Database;
+namespace MrThito\MicroService\Database;
 
 use PDO;
 use PDOException;

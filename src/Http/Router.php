@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MrRijal\MicroService\Http;
+namespace MrThito\MicroService\Http;
 
 final class Router
 {

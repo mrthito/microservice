@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace MrRijal\MicroService;
+namespace MrThito\MicroService;
 
-use MrRijal\MicroService\Contracts\MicroServiceConfig;
-use MrRijal\MicroService\Support\Env;
+use MrThito\MicroService\Contracts\MicroServiceConfig;
+use MrThito\MicroService\Support\Env;
 
 final class Bootstrap
 {

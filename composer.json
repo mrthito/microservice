@@ -1,5 +1,5 @@
 {
-    "name": "mr-rijal/microservice",
+    "name": "mrthito/microservice",
     "description": "Lightweight PHP microservice foundation: env, logging, Redis queue, signed events, and HTTP health checks.",
     "keywords": [
         "microservice",
@@ -15,14 +15,14 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Mr Rijal",
-            "homepage": "https://github.com/mr-rijal"
+            "name": "MrThito",
+            "homepage": "https://github.com/mrthito"
         }
     ],
-    "homepage": "https://github.com/mr-rijal/microservice",
+    "homepage": "https://github.com/mrthito/microservice",
     "support": {
-        "issues": "https://github.com/mr-rijal/microservice/issues",
-        "source": "https://github.com/mr-rijal/microservice"
+        "issues": "https://github.com/mrthito/microservice/issues",
+        "source": "https://github.com/mrthito/microservice"
     },
     "require": {
         "php": "^8.4",
@@ -35,12 +35,12 @@
     },
     "autoload": {
         "psr-4": {
-            "MrRijal\\MicroService\\": "src/"
+            "MrThito\\MicroService\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "MrRijal\\MicroService\\Tests\\": "tests/"
+            "MrThito\\MicroService\\Tests\\": "tests/"
         }
     },
     "scripts": {

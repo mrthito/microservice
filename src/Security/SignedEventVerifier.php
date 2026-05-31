@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MrRijal\MicroService\Security;
+namespace MrThito\MicroService\Security;
 
-use MrRijal\MicroService\Contracts\EventVerifier;
+use MrThito\MicroService\Contracts\EventVerifier;
 use RuntimeException;
 
 final class SignedEventVerifier implements EventVerifier

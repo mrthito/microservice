@@ -1,8 +1,8 @@
-# mr-rijal/microservice
+# mrthito/microservice
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/mr-rijal/microservice.svg?style=flat-square)](https://packagist.org/packages/mr-rijal/microservice)
-[![Total Downloads](https://img.shields.io/packagist/dt/mr-rijal/microservice.svg?style=flat-square)](https://packagist.org/packages/mr-rijal/microservice)
-[![License](https://img.shields.io/packagist/l/mr-rijal/microservice.svg?style=flat-square)](LICENSE)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/mrthito/microservice.svg?style=flat-square)](https://packagist.org/packages/mrthito/microservice)
+[![Total Downloads](https://img.shields.io/packagist/dt/mrthito/microservice.svg?style=flat-square)](https://packagist.org/packages/mrthito/microservice)
+[![License](https://img.shields.io/packagist/l/mrthito/microservice.svg?style=flat-square)](LICENSE)
 
 Lightweight PHP foundation for event-driven microservices that share a Laravel database and Redis queue — with zero framework dependencies.
 
@@ -14,7 +14,7 @@ Lightweight PHP foundation for event-driven microservices that share a Laravel d
 ## Installation
 
 ```bash
-composer require mr-rijal/microservice
+composer require mrthito/microservice
 ```
 
 Local development with a path repository:
@@ -28,7 +28,7 @@ Local development with a path repository:
         }
     ],
     "require": {
-        "mr-rijal/microservice": "@dev"
+        "mrthito/microservice": "@dev"
     }
 }
 ```
@@ -49,9 +49,9 @@ Local development with a path repository:
 ### 1. Implement service config
 
 ```php
-use MrRijal\MicroService\Contracts\MicroServiceConfig;
-use MrRijal\MicroService\Support\Env;
-use MrRijal\MicroService\Support\Manifest;
+use MrThito\MicroService\Contracts\MicroServiceConfig;
+use MrThito\MicroService\Support\Env;
+use MrThito\MicroService\Support\Manifest;
 
 final readonly class Config implements MicroServiceConfig
 {
@@ -72,11 +72,11 @@ final readonly class Config implements MicroServiceConfig
 ### 2. Wire the queue worker
 
 ```php
-use MrRijal\MicroService\Bootstrap;
-use MrRijal\MicroService\Queue\RedisQueueListener;
-use MrRijal\MicroService\Security\SignedEventVerifier;
-use MrRijal\MicroService\Support\BaseConfigValidator;
-use MrRijal\MicroService\Support\Logger;
+use MrThito\MicroService\Bootstrap;
+use MrThito\MicroService\Queue\RedisQueueListener;
+use MrThito\MicroService\Security\SignedEventVerifier;
+use MrThito\MicroService\Support\BaseConfigValidator;
+use MrThito\MicroService\Support\Logger;
 
 $config = Bootstrap::boot('/path/to/service', fn () => Config::fromEnvironment('/path/to/service'));
 BaseConfigValidator::validate($config);
@@ -105,8 +105,8 @@ $listener->listen();
 ### 3. Expose a health endpoint
 
 ```php
-use MrRijal\MicroService\Http\HealthController;
-use MrRijal\MicroService\Http\Router;
+use MrThito\MicroService\Http\HealthController;
+use MrThito\MicroService\Http\Router;
 
 $router = new Router;
 $router->get('/health', new HealthController(
@@ -147,7 +147,7 @@ composer test
 
 ## Publishing to Packagist
 
-1. Push this repository to GitHub (for example `github.com/mr-rijal/microservice`).
+1. Push this repository to GitHub (for example `github.com/mrthito/microservice`).
 2. Create a release tag: `git tag v1.0.0 && git push origin v1.0.0`.
 3. Submit the repository URL at [packagist.org](https://packagist.org/packages/submit).
 4. Enable the Packagist GitHub hook for automatic updates on new tags.

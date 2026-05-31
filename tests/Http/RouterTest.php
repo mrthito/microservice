@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MrRijal\MicroService\Tests\Http;
+namespace MrThito\MicroService\Tests\Http;
 
-use MrRijal\MicroService\Http\Router;
+use MrThito\MicroService\Http\Router;
 use PHPUnit\Framework\TestCase;
 
 final class RouterTest extends TestCase

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MrRijal\MicroService\Tests\Support;
+namespace MrThito\MicroService\Tests\Support;
 
-use MrRijal\MicroService\Support\Env;
+use MrThito\MicroService\Support\Env;
 use PHPUnit\Framework\TestCase;
 
 final class EnvTest extends TestCase

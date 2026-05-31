@@ -22,4 +22,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Contracts for config, event processors, and event verifiers (`Contracts\*`)
 - Application bootstrap helper (`Bootstrap`)
 
-[1.0.0]: https://github.com/mr-rijal/microservice/releases/tag/v1.0.0
+[1.0.0]: https://github.com/mrthito/microservice/releases/tag/v1.0.0

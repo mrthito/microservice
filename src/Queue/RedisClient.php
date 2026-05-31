@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MrRijal\MicroService\Queue;
+namespace MrThito\MicroService\Queue;
 
 use RuntimeException;
 
