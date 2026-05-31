@@ -4,10 +4,25 @@ declare(strict_types=1);
 
 namespace MrThito\MicroService\Http;
 
+use MrThito\MicroService\Contracts\MicroServiceConfig;
+
 final class Router
 {
     /** @var array<string, array<string, callable|class-string>> */
     private array $routes = [];
+
+    public function __construct()
+    {
+        $this->registerFallbackHealthRoutes();
+    }
+
+    public static function forConfig(MicroServiceConfig $config): self
+    {
+        $router = new self;
+        $router->registerServiceHealthRoutes($config);
+
+        return $router;
+    }
 
     public function get(string $path, callable|string $handler): self
     {
@@ -46,6 +61,31 @@ final class Router
         $response = $handler();
 
         return is_array($response) ? $response : ['status' => 'ok'];
+    }
+
+    private function registerFallbackHealthRoutes(): void
+    {
+        $handler = static fn (): array => ['status' => 'ok'];
+
+        $this->get('/health', $handler);
+        $this->get('/', $handler);
+    }
+
+    private function registerServiceHealthRoutes(MicroServiceConfig $config): void
+    {
+        $health = new HealthController(
+            serviceName: $config->serviceName(),
+            queueKey: $config->redis()['queue_key'] ?? null,
+        );
+
+        $handler = $health(...);
+        $healthPath = $config->healthPath();
+
+        $this->get($healthPath, $handler);
+
+        if ($healthPath !== '/') {
+            $this->get('/', $handler);
+        }
     }
 
     private function normalizePath(string $path): string

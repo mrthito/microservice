@@ -27,4 +27,6 @@ interface MicroServiceConfig
     public function logLevel(): string;
 
     public function serviceName(): string;
+
+    public function healthPath(): string;
 }

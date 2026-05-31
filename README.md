@@ -17,22 +17,6 @@ Lightweight PHP foundation for event-driven microservices that share a Laravel d
 composer require mrthito/microservice
 ```
 
-Local development with a path repository:
-
-```json
-{
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../package-ms"
-        }
-    ],
-    "require": {
-        "mrthito/microservice": "@dev"
-    }
-}
-```
-
 ## Features
 
 - `.env` loading without external dependencies
@@ -41,7 +25,8 @@ Local development with a path repository:
 - Laravel `APP_KEY` payload decryption
 - Minimal Redis RESP client (BRPOP)
 - HMAC-SHA256 signed queue event verification
-- Minimal HTTP router for health checks
+- Minimal HTTP router with **built-in `/health` route by default**
+- `Http\Server` for one-line HTTP entrypoints
 - `boot.json` service manifest reader
 
 ## Quick start
@@ -102,19 +87,25 @@ $listener = new RedisQueueListener(
 $listener->listen();
 ```
 
-### 3. Expose a health endpoint
+### 3. Expose the HTTP server
+
+Health routes (`/health` and `/`) are registered automatically.
 
 ```php
-use MrThito\MicroService\Http\HealthController;
-use MrThito\MicroService\Http\Router;
+use MrThito\MicroService\Http\Server;
 
-$router = new Router;
-$router->get('/health', new HealthController(
-    serviceName: $config->serviceName(),
-    queueKey: $config->redis()['queue_key'],
-));
+$config = Bootstrap::boot('/path/to/service', fn () => Config::fromEnvironment('/path/to/service'));
 
-echo json_encode($router->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']));
+(new Server($config))->run();
+```
+
+Add custom routes before serving:
+
+```php
+$server = new Server($config);
+$server->router()->get('/metrics', static fn (): array => ['uptime' => time()]);
+
+$server->run();
 ```
 
 ## Service manifest
@@ -130,7 +121,7 @@ Each microservice should include a `boot.json` file in its project root:
 }
 ```
 
-Load it with `Manifest::load($basePath)`.
+Load it with `Manifest::load($basePath)`. The `health` path is exposed via `MicroServiceConfig::healthPath()` and used by the default router.
 
 ## Security
 
