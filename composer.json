@@ -1,0 +1,55 @@
+{
+    "name": "mr-rijal/microservice",
+    "description": "Lightweight PHP microservice foundation: env, logging, Redis queue, signed events, and HTTP health checks.",
+    "keywords": [
+        "microservice",
+        "redis",
+        "queue",
+        "php",
+        "laravel",
+        "event-driven",
+        "hmac",
+        "pdo"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mr Rijal",
+            "homepage": "https://github.com/mr-rijal"
+        }
+    ],
+    "homepage": "https://github.com/mr-rijal/microservice",
+    "support": {
+        "issues": "https://github.com/mr-rijal/microservice/issues",
+        "source": "https://github.com/mr-rijal/microservice"
+    },
+    "require": {
+        "php": "^8.4",
+        "ext-json": "*",
+        "ext-openssl": "*",
+        "ext-pdo": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "MrRijal\\MicroService\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MrRijal\\MicroService\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit --colors=always"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
