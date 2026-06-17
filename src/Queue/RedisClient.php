@@ -40,6 +40,25 @@ final class RedisClient
         return [(string) $response[0], (string) $response[1]];
     }
 
+    public function rpush(string $key, string $value): void
+    {
+        $this->connect();
+        $this->command(['RPUSH', $key, $value]);
+        $this->readResponse();
+    }
+
+    public function del(string $key): void
+    {
+        $this->connect();
+        $this->command(['DEL', $key]);
+        $this->readResponse();
+    }
+
+    public function resetConnection(): void
+    {
+        $this->close();
+    }
+
     public function close(): void
     {
         if (is_resource($this->socket)) {
